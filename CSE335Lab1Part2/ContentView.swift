@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var height: String = "";
-    @State var weight: String = "";
+    @State var height: Float = 0.0;
+    @State var weight: Float = 0.0;
     private var BMI: Float { (Float(weight) ?? 0) / ( (Float(height) ?? 0) * (Float(height) ?? 0) ) * 703 }
     @State var BMIString: String = "";
     @State var status: Int = -1;
@@ -25,16 +25,14 @@ struct ContentView: View {
             VStack{
         HStack{
             Text("Height: ")
-            Spacer()
-            Spacer()
-            TextField("", text: $height).keyboardType(.decimalPad);
-            
+            VStack{
+            Slider(value: $height, in: 0...108)
+                Text("\(self.height)");
+            }
         }
         HStack{
             Text("Weight: ")
-            Spacer()
-            Spacer()
-            TextField("", text: $weight).keyboardType(.decimalPad);
+            Slider(value: $weight, in: 0...1500)
         }
 
         HStack{
