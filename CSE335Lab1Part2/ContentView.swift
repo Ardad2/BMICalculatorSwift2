@@ -32,28 +32,28 @@ struct ContentView: View {
         }
         HStack{
             Text("Weight: ")
+            VStack{
             Slider(value: $weight, in: 0...1500)
+            Text("\(self.weight)");
+            }
         }
-
-        HStack{
-            Text("BMI: ")
-            Spacer()
-            Spacer()
-            
-            if (BMI > 0)
-            {
-            Text("\(self.BMI)");
-            }
-            else
-            {
-                Text("");
-            }
-            
-                }
-            }
-                
-
         Spacer()
+        HStack{
+                Text("BMI: ")
+                Spacer()
+                Spacer()
+                
+                if (BMI > 0)
+                {
+                Text("\(self.BMI)");
+                }
+                else
+                {
+                    Text("");
+                }
+                
+                    }
+            }
         
         HStack{
             
